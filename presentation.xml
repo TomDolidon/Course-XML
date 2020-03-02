@@ -13,13 +13,13 @@
         <modèle nom="model1" color="FF00FF" taille="18" />
     </en-tête>
 
-    <diapo modèle="model1">
+    <diapo ref_modèle="model1">
 
         <titre>Pourquoi Adil est-il si génial ? </titre>
 
         <corps>
             <bloc>
-                <liste>
+                <liste type="puce">
                     <item>
                         <para> Il est beau </para>
                     </item>
