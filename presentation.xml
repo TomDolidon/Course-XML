@@ -13,7 +13,7 @@
         <modèle nom="model1" color="FF00FF" taille="18" />
     </en-tête>
 
-    <diapo ref_modèle="model1">
+    <diapo modèle="model1">
 
         <titre>Pourquoi Adil est-il si génial ? </titre>
 
