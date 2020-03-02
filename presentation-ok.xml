@@ -1,0 +1,61 @@
+<présentation xmlns="urn:presentation">
+  <en-tête>
+    <modèle nom="bleu" color="0000EE" taille="18"/>
+    <modèle nom="rouge" color="EE0000"/>
+    <modèle nom="vert" color="11EE11"/>
+  </en-tête>
+  
+  <diapo ref_modèle="bleu">
+    <titre>Ma Diapo</titre>
+    
+    <corps>
+      <bloc>  
+        <para>
+          <gras>hello</gras>
+          <couleur>real</couleur>
+          <gras>real</gras>
+          world
+        </para>
+      </bloc>
+      
+      <bloc>
+        <liste type="num">
+          <item><para>1er item</para></item>
+          <item><para>Second item</para></item>
+        </liste>
+      </bloc>
+      
+      <bloc>
+        <liste type="puce">
+          <item><para>1er item</para></item>
+          <item><para>Second item</para></item>
+        </liste>
+      </bloc>
+      
+      <bloc>
+        <liste type="puce">
+          <item><para>1er item</para></item>
+          <item>
+            <para>Second item</para>
+            <liste type="puce">
+              <item><para>1er item</para></item>
+              <item><para>Second item</para></item>
+            </liste>
+          </item>
+        </liste>
+      </bloc>
+      
+      <bloc>
+        <image src="image.png"/>
+      </bloc>
+      
+    </corps>
+
+  </diapo>
+  
+  <diapo ref_modèle="rouge">
+    <titre>Diapo 2</titre>
+    <corps/>
+  </diapo>
+  
+</présentation>

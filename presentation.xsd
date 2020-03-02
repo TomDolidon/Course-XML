@@ -1,0 +1,103 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:xs="urn:presentation"
+        targetNamespace="urn:presentation"
+        elementFormDefault="qualified"
+>
+
+    <!-- racine -->
+    <element name="présentation" type="xs:type_presentation" />
+
+    <complexType name="type_presentation">
+        <sequence>
+            <element name="en-tête" type="xs:type_entete"/>
+            <element name="diapo" type="xs:type_diapo" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="type_entete">
+        <sequence>
+            <element name="modèle" type="xs:type_modele" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="type_modele">
+        <attribute  name="nom"  type="string" use="required"/>
+        <attribute name="color" type="string" use="required"/>
+        <attribute name="taille" type="integer" use="optional"/>
+    </complexType>
+
+    <complexType name="type_diapo">
+        <sequence>
+            <element name="titre" type="string"/>
+            <element name="corps" type="xs:type_corps"/>
+        </sequence>
+        <attribute name="ref_modèle" type="string" use="optional"/>
+    </complexType>
+
+    <complexType name="type_corps">
+        <sequence maxOccurs="unbounded" minOccurs="0">
+            <element name="bloc" type="xs:type_bloc"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="type_bloc">
+        <choice>
+            <element name="para" type="xs:type_paragraphe"/>
+            <element name="liste" type="xs:type_liste"/>
+            <element name="image" type="xs:type_image"/>
+        </choice>
+    </complexType>
+
+    <complexType name="type_paragraphe" mixed="true">
+        <sequence maxOccurs="unbounded">
+            <element name="gras" type="xs:type_gras" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="italique" type="xs:type_italique" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="couleur" type="xs:type_couleur" maxOccurs="unbounded" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="type_gras" mixed="true">
+        <sequence maxOccurs="unbounded" minOccurs="0">
+            <element name="gras" type="xs:type_gras" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="italique" type="xs:type_italique" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="couleur" type="xs:type_couleur" maxOccurs="unbounded" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="type_italique" mixed="true">
+        <sequence maxOccurs="unbounded" minOccurs="0">
+            <element name="gras" type="xs:type_gras" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="italique" type="xs:type_italique" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="couleur" type="xs:type_couleur" maxOccurs="unbounded" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="type_couleur" mixed="true">
+        <sequence maxOccurs="unbounded" minOccurs="0">
+            <element name="gras" type="xs:type_gras" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="italique" type="xs:type_italique" maxOccurs="unbounded" minOccurs="0"/>
+            <element name="couleur" type="xs:type_couleur" maxOccurs="unbounded" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="type_liste">
+        <sequence>
+            <element name="item" type="xs:type_item" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="type" type="string" use="optional"/>
+    </complexType>
+
+    <complexType name="type_item">
+        <sequence>
+            <element name="para" type="xs:type_paragraphe" maxOccurs="unbounded"/>
+            <element name="liste" type="xs:type_liste" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="type_image">
+        <attribute name="src" type="string" use="optional"/>
+    </complexType>
+
+
+</schema>
+

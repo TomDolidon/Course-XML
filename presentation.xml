@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE présentation SYSTEM "presentation.dtd"> -->
+
+
+<présentation
+        xmlns="urn:presentation"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:presentation presentation.xsd"
+>
+
+    <en-tête>
+        <modèle nom="model1" color="FF00FF" taille="18" />
+    </en-tête>
+
+    <diapo ref_modèle="model1">
+
+        <titre>Pourquoi Adil est-il si génial ? </titre>
+
+        <corps>
+            <bloc>
+                <liste>
+                    <item>
+                        <para> Il est beau </para>
+                    </item>
+                    <item>
+                        <para> <gras> Il est<italique>intelligent</italique> </gras>  </para>
+                    </item>
+                    <item>
+                        <para> Il est humble </para>
+                    </item>
+                </liste>
+            </bloc>
+
+            <bloc>
+                <image src="https://media-exp1.licdn.com/dms/image/C4E03AQHrsxq8BqmC9Q/profile-displayphoto-shrink_200_200/0?e=1586995200&amp;v=beta&amp;t=r6lvJFUfg2NWlTlDJn57dhTVWL_-AXBNWy2C2D3z4-A" />
+            </bloc>
+
+        </corps>
+    </diapo>
+
+</présentation>

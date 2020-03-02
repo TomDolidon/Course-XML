@@ -1,0 +1,7 @@
+<!-- sans en-tete -->
+<présentation xmlns="urn:presentation">
+  <diapo ref_modèle="rouge">
+    <titre>Diapo 2</titre>
+    <corps/>
+  </diapo>
+</présentation>
