@@ -21,7 +21,7 @@
     </complexType>
 
     <complexType name="type_modele">
-        <attribute  name="nom"  type="string" use="required"/>
+        <attribute name="nom"  type="string" use="required"/>
         <attribute name="color" type="string" use="required"/>
         <attribute name="taille" type="integer" use="optional"/>
     </complexType>
@@ -31,7 +31,7 @@
             <element name="titre" type="string"/>
             <element name="corps" type="xs:type_corps"/>
         </sequence>
-        <attribute name="ref_modèle" type="string" use="optional"/>
+        <attribute name="ref_modèle" ref="xs:type_modele" type="string" use="required"/>
     </complexType>
 
     <complexType name="type_corps">
