@@ -6,38 +6,49 @@
 >
 
     <!-- racine -->
-    <element name="présentation" type="xs:type_presentation" />
+    <element name="présentation">
 
-    <complexType name="type_presentation">
-        <sequence>
-            <element name="en-tête" >
-                <complexType>
-                    <sequence>
-                        <element name="modèle" maxOccurs="unbounded">
-                            <complexType>
-                                <attribute  name="nom"  type="string" use="required"/>
-                                <attribute name="color" type="string" use="required"/>
-                                <attribute name="taille" type="integer" use="optional"/>
-                            </complexType>
-                        </element>
-                    </sequence>
-                </complexType>
-                <unique name="uniqueName">
-                    <selector xpath="xs:modèle"/>
-                    <field xpath="@nom"/>
-                </unique>
-            </element>
-            <element name="diapo" type="xs:type_diapo" maxOccurs="unbounded"/>
-        </sequence>
-    </complexType>
+        <complexType>
+            <sequence>
+                <element name="en-tête" >
+                    <complexType>
+                        <sequence>
+                            <element name="modèle" maxOccurs="unbounded">
+                                <complexType>
+                                    <attribute  name="nom"  type="string" use="required"/>
+                                    <attribute name="color" type="string" use="required"/>
+                                    <attribute name="taille" type="integer" use="optional"/>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
+                    <unique name="uniqueName">
+                        <selector xpath="xs:modèle"/>
+                        <field xpath="@nom"/>
+                    </unique>
+                    <key name="myId">
+                        <selector xpath="xs:modèle"/>
+                        <field xpath="@nom"/>
+                      </key>
+                </element>
+                <element name="diapo" maxOccurs="unbounded">
+                    <complexType >
+                        <sequence>
+                            <element name="titre" type="string"/>
+                            <element name="corps" type="xs:type_corps"/>
+                        </sequence>
+                        <attribute name="ref_modèle" type="ID" use="required"/>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
 
-    <complexType name="type_diapo">
-        <sequence>
-            <element name="titre" type="string"/>
-            <element name="corps" type="xs:type_corps"/>
-        </sequence>
-        <attribute name="ref_modèle" type="string" use="required"/>
-    </complexType>
+          <keyref name="myIdref" refer="xs:myId">
+            <selector xpath="xs:diapo"/>
+            <field xpath="@ref_modèle"/>
+          </keyref>
+    </element>
+
 
     <complexType name="type_corps">
         <sequence maxOccurs="unbounded" minOccurs="0">
